@@ -166,7 +166,7 @@ jobs:
         cd $GITHUB_WORKSPACE/kernel_workspace
         git clone --recursive ${{ env.KERNEL_SOURCE }} -b ${{ env.KERNEL_SOURCE_BRANCH }} android-kernel --depth=1
         cd android-kernel
-        git clone --depth=1 \ https://github.com/duckyduckG/kernel_techpack_mi845_419 \techpack/mi845
+        git clone --recursive ${{ env.KERNEL_TECHPACK }} -b techpack/mi845 --depth=1
         cd ..
         if [[ ${{ env.ADD_LOCALVERSION_TO_FILENAME }} == 'true' ]]; then
           echo "LOCALVERSION=$(cat android-kernel/localversion)" >> $GITHUB_ENV
